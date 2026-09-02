@@ -1,0 +1,8 @@
+reopozytorium - repo, katalog, w ktorym przechowywany jest dany kod/projekt/aplikacja
+github - serwis internetowy, ktory przechowuje repozytoria, mozliwy podlag z innego komputera
+git -  system kontroli wersji, pozwala na przechowywanie wiele wersji projektow, aby nie stracic poprzednich zmian w kodzie np
+commit - zapisanie pliku, git commit
+branch - galaz, branch pozwala na wprowadzenie zmian bez wplywu na glowna czesc kodu, git branch NAZWAGALEZI - stworzenie galezi
+checkout - przelaczanie sie miedzy galeziami, git checkout
+merge - polaczenie  zmian z dwoch roznych galezi w jedna, git merge NAZWAGALEZI
+rebase - pobiera zestaw commitow, kopiuje i wrzuca je gdzies indziej w lini 
