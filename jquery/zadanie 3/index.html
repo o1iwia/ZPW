@@ -1,0 +1,52 @@
+<html>
+    <head>
+        <script src="https://code.jquery.com/jquery-4.0.0.js" integrity="sha256-9fsHeVnKBvqh3FB2HYu7g2xseAZ5MlN6Kz/qnkASV8U=" crossorigin="anonymous"></script>
+        <script>
+            $(function() {
+              // $("button").on("click",function(){
+                //console.log("teslt");
+               //})
+               
+              // $("button").click(function(){
+               // console.log("drugi sposob");
+               //})
+
+               //po kliknieciu przycisku alert czesc
+               //$("button").on("click",function() {
+                //alert("czesc");
+                  // })
+
+                //zamiast alert informacja pojawiala sie w paragrafie komunikat
+                $("button").click(function() {
+                    $("p").text("czesc");
+                    $("p").prepend("czesc");
+
+                })   
+                //klikniecie w szary kwadrat zmienia jego kolor tla na czerwony
+
+                $("#kwadrat").click(function() {
+                    $("#kwadrat").css("background-color","red");
+                })
+
+                //drugi przcysik resetuj po kliknieciu czysci paragarf komunikat
+                $("#reset").click(function() {
+                    $("#kwadrat").css("background-color","lightgray");
+                    $("p").empty();
+                    $("p").text("");//LEPIEJ TO
+                })
+                
+            });
+        </script>
+         <style>
+        #kwadrat { width: 150px; height: 150px; background: lightgray; }
+    </style>
+    </head>
+    <button id="przywitaj">Przywitaj się</button>
+  <p id="komunikat"></p>
+ 
+  <div id="kwadrat"></div>
+
+ <button id="reset">zresetuj</button>
+
+</body>
+</html>
