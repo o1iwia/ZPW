@@ -1,0 +1,98 @@
+<html>
+    <head>
+        <title>strona glowna</title>
+        <script src="https://code.jquery.com/jquery-4.0.0.js" integrity="sha256-9fsHeVnKBvqh3FB2HYu7g2xseAZ5MlN6Kz/qnkASV8U=" crossorigin="anonymous"></script>
+        <script>
+            $(function() {
+                $("#answer").change(function() {
+                    if(this.checked) {
+                        $("sent").removeAttr("disabled");
+                    } else {
+                        $("#sent").attr("disabled","disabled");
+                    }
+                }) 
+                $("a").eq(1).addClass("another_link");
+                $("a").eq(2).removeClass();
+                
+                $("#usun").click(function() {
+                    $("p").removeClass();
+                    alert("udalo sie");
+                })
+
+            })
+
+
+        </script>
+        <style>
+            .background {
+                background-color: red;
+            }
+            .fontsize {
+                font-size: 150%;
+            }
+            .link{
+                color: grey;
+                text-decoration: none;
+                }
+ 
+            .another_link{
+                 background-color: black;
+                }    
+ 
+            .completely_different_link{
+                background-color: yellow;
+                }
+             body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+        ul {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        li {
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+            color: #555;
+        }
+        li:last-child {
+            border-bottom: none;
+        }
+        li:hover {
+            color: #007bff;
+            font-weight: bold;
+        }
+            
+        </style>
+    </head>
+    <body>
+
+        <input type="checkbox" name="answer" id="answer">
+        <label for="answer">Czy akceptujesz?</label>
+        <button id="sent" disabled >wyslij</button>
+
+         <h1>Lista Gier Komputerowych</h1>
+
+         <ul>
+        <li ><a href="#">Hollow Knight</a></li>
+        <li><a href="#">Minecraft</a></li>
+        <li><a href="#">Portal 2</a></li>
+        <li><a href="#">The Legend of Zelda: Breath of the Wild</a></li>
+        <li><a href="#">Dark Souls III</a></li>
+        <li><a href="#">Valorant</li>
+        <li><a href="#">>Counter-Strike 2</a></li>
+    </ul>
+
+    <p class="background fontsize">akapit</p>
+    <button id="usun">usun</button>
+    </body>
+</html>

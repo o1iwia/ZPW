@@ -1,0 +1,89 @@
+<html>
+    <head>
+        <title>strona jquery</title>
+
+        <div id="kw"
+        style="width: 200px;
+        height: 200px;
+        background-color: red;">
+
+        </div >
+<p id="txt"></p>
+            <script
+        src="https://code.jquery.com/jquery-4.0.0.js"
+        integrity="sha256-9fsHeVnKBvqh3FB2HYu7g2xseAZ5MlN6Kz/qnkASV8U="
+        crossorigin="anonymous"></script>
+        
+<script>
+                $(function(){
+                        let licznik =0;
+                    $("#kw").on("click",function(){
+                    licznik++;
+                        $("#txt").text("liczba"+licznik)
+                    })
+                });
+
+
+    </script>
+
+    </head>
+</html>
+
+
+
+   <!DOCTYPE html>
+   <html lang="en">
+   <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+   </head>
+   <body>
+    
+
+
+
+ <ul id="lista">
+        <li>Chleb</li>
+        <li>Mleko</li>
+    </ul>
+        <input type="text" id="produkt" placeholder="Nazwa produktu">
+        <button id="naKoniec">Dodaj na koniec</button>
+        <button id="naPoczatek">Dodaj na początek</button>
+
+    
+    <script
+        src="https://code.jquery.com/jquery-4.0.0.js"
+        integrity="sha256-9fsHeVnKBvqh3FB2HYu7g2xseAZ5MlN6Kz/qnkASV8U="
+        crossorigin="anonymous">
+    </script>
+        
+<script>
+            
+         $(function(){
+                        
+                            $("#naKoniec").on("click",function(){
+                                let inp = $("input").val();  
+                                $("ul").append("<li>"+inp+"</li>")
+                                $("li").last().css({
+                                    "color":"green"
+                                })
+                                            inp.val("");
+                                
+                            })
+                        
+                                     $("#naPoczatek").on("click",function(){
+                                        let inp = $("input").val();  
+                                $("ul").prepend("<li>"+inp+"</li>")
+                                     $("li").first().css({
+                                    "color":"red"
+                                })
+                                            inp.val("");
+                                
+                            })
+                        });
+</script>
+
+
+   </body>
+   </html>
