@@ -1,0 +1,53 @@
+<html>
+    <head>
+        <title>strona glowna</title>
+        <script src="https://code.jquery.com/jquery-4.0.0.js" integrity="sha256-9fsHeVnKBvqh3FB2HYu7g2xseAZ5MlN6Kz/qnkASV8U=" crossorigin="anonymous"></script>
+        <script>
+            //po kliknieciu przycisku zmien tresc akapity na "nowy tekst"
+             $(function() {
+            $("#zmien").on("click",function() {
+                $("#tekst").text("nowy tekst");
+                   }) })
+                   //przycisk ma naprzemiennie chowac i pokazywac div. poszukaj metody .toggle
+                    $(function() {
+                   $("#przelacz").on("click",function() {
+                    $("#pudelko").toggle();
+                   }) 
+                })
+                   //po kliknieciu akapitu ma sie on podswietlic. drugie klikniecie zdjemuje podswietlenie .toggleClass()
+                    $(function() {
+                    $(".akapit").on("click",function() {
+                    $(this).toggleClass("podswietlony");
+                   }) 
+                })
+                //po kliknieciu wpisz do #wynik tekst "czesc, <imie>!". jesli pole jest puste wypisz podaj imie
+                    $(function() {
+                        $("#przywitaj").on("click",function() {
+                            let $imie = $("input").val()
+                            if($imie !== "") {
+                                $("#wynik").text("czesc, "+ $imie+"!");
+                            } else {
+                                $("#wynik").text("podaj imie");
+                            }
+                        })
+                    })
+
+        </script>
+        <style>
+         .podswietlony { background-color: yellow;}
+        </style>
+    </head>
+    <body>
+      <p id="tekst"> stary tekst</p>
+      <button id="zmien">zmien</button>
+
+      <div id="pudelko">widzisz mnie</div>
+      <button id="przelacz">pokaz/ukryj</button>
+
+      <p class="akapit">kliknij mnie</p>
+
+      <input type="text" id="imie">
+      <button id="przywitaj"> przywitaj</button>
+      <p id="wynik"></p>
+    </body>
+</html>
