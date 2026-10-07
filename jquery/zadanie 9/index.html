@@ -8,61 +8,98 @@
                 $("#eventType").text(event.type);
             })
 
-             $(document).on("mousemove", function() {
+            $(document).on("mousemove", function(event) {
                 $("#pageX").text(event.pageX);
                 $("#pageY").text(event.pageY);
             })
-             })
+          })
             //stworzyc kwadrat 200x200 czerwony, po nacisnieciu literki d przesuwa w prawo,a w lewo
             
             $(function() {
                 $("#jablko").css({ 
-                    "margin-left": Math.floor((Math.random() * 1000) + 1) + "px", 
-                    "margin-top": Math.floor((Math.random() * 1000) + 1) + "px" 
-                    }); 
+                    "left": Math.floor((Math.random() * 1000) + 1) + "px", 
+                    "top": Math.floor((Math.random() * 1000) + 1) + "px" 
+                }); 
                
-                let positionX =0;
-                let positionY =0;
-                $(document).on("keydown", function() {
-                    if(event.key == "a") {
+                let positionX = 0;
+                let positionY = 0;
+                let rozmiar = 200;
+
+                function sprawdzKolizje() {
+                    let jX = parseInt($("#jablko").css("left"));
+                    let jY = parseInt($("#jablko").css("top"));
+
+                    
+                    if (positionX < jX + 20 && positionX + rozmiar > jX &&
+                        positionY < jY + 20 && positionY + rozmiar > jY) {
+                        
+                        
+                        $("#jablko").css({
+                            "left": Math.floor((Math.random() * 1000) + 1) + "px",
+                            "top": Math.floor((Math.random() * 1000) + 1) + "px"
+                        });
+
+                        
+                        rozmiar += 20;
+                        positionX -= 10;
+                        positionY -= 10;
+
+                        $("#kwadrat").css({
+                            "width": rozmiar + "px",
+                            "height": rozmiar + "px",
+                            "left": positionX + "px",
+                            "top": positionY + "px"
+                        });
+                    }
+                }
+
+                $(document).on("keydown", function(event) {
+                    if(event.key == "a" || event.key == "A") {
                        positionX = positionX - 10;
-                       $("#kwadrat").css("margin-left",positionX+"px");
+                       $("#kwadrat").css("left", positionX + "px");
                     } 
-                    if(event.key == "d") {
+                    if(event.key == "d" || event.key == "D") {
                        positionX = positionX + 10;
-                        $("#kwadrat").css("margin-left",positionX+"px");
+                       $("#kwadrat").css("left", positionX + "px");
                     }
-                     if(event.key == "w") {
+                    if(event.key == "w" || event.key == "W") {
                        positionY = positionY - 10;
-                       $("#kwadrat").css("margin-top",positionY+"px");
+                       $("#kwadrat").css("top", positionY + "px");  
                     } 
-                    if(event.key == "s") {
+                    if(event.key == "s" || event.key == "S") {
                        positionY = positionY + 10;
-                        $("#kwadrat").css("margin-top",positionY+"px");
+                       $("#kwadrat").css("top", positionY + "px");
                     }
+
+                    sprawdzKolizje();
                 })
             })
             //jak dojdzie do kolizji to jablko znika a kwadrat zwieksza sie o 10px w kazda strine
+
+           
          
         </script>
-         <style>
-        
+        <style>
         #kwadrat {
             width: 200px;
             height: 200px;
-            background-color: red
+            background-color: red;
+            position: absolute;
+            left: 0px;
+            top: 0px;
         }
+        
         #jablko {
             width: 20px;
             height: 20px;
-            background-color: green
+            background-color: green;
+            position: absolute;
         }
     </style>
     </head>
     <body>
         
-
-            <!-- <input type="text" name="pole" id="pole">
+            <input type="text" name="pole" id="pole">
             <p>
                 Typ zdarzenia:
                 <span id="eventType">---</span>
@@ -71,8 +108,9 @@
                 Pozycja myszy:
                 X = <span id="pageX">---</span>,
                 Y = <span id="pageY">---</span>
-            </p>-->
+            </p>
             <div id="kwadrat"></div>
             <div id="jablko"></div>
+            
     </body> 
 </html>
