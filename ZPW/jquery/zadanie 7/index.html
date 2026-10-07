@@ -1,0 +1,56 @@
+<html>
+    <head>
+        <title>strona glowna</title>
+        <script src="https://code.jquery.com/jquery-4.0.0.js" integrity="sha256-9fsHeVnKBvqh3FB2HYu7g2xseAZ5MlN6Kz/qnkASV8U=" crossorigin="anonymous"></script>
+        <script>
+            $(function() {
+                // policzyc suma cen i wpisac do #suma
+                let suma=0;
+                $("li").each(function() {
+                    suma += $(this).data(cena);
+                }) 
+                $("#suma").text(suma);
+            })
+
+            //nadaj klase "drogie" kazdemu li ktorego cena przekracza 20
+            $(function() {
+                $("li").each(function() {
+                    if($(this).data("cena") > 20) {
+                        $(this).addClass("drogie");
+                    }
+                })
+            })
+            //pokoloruj co drugi element na szaro (uzyj index)
+            $(function() {
+                $("li").each(function(index,element) {
+                    if(index % 2 ==0) {
+                        $(this).css("color","grey");
+                    }
+                })
+            })
+            //znajdz pierwszy element drozszy niz 20,podswietl go (inne tlo) i przerwij petle
+            $(function() {
+                $("li").each(function() {
+                    if($(this).data("cena") > 20) {
+                        $(this).css("background-color","red");
+                        return false //PRZERWANIE PETLI
+                    }
+                })
+            })
+
+
+        </script>
+        <style>
+         
+        </style>
+    </head>
+    <body>
+           <ul id="lista">
+            <li data-cena="10">Chleb</li>
+            <li data-cena="25">Ser</li>
+            <li data-cena="5">Woda</li>
+            <li data-cena="40">Szynka</li>
+            </ul>
+<p id="suma"></p>
+    </body>
+</html>

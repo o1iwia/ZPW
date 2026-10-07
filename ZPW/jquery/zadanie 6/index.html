@@ -1,0 +1,85 @@
+<html>
+    <head>
+        <title>strona glowna</title>
+        <script src="https://code.jquery.com/jquery-4.0.0.js" integrity="sha256-9fsHeVnKBvqh3FB2HYu7g2xseAZ5MlN6Kz/qnkASV8U=" crossorigin="anonymous"></script>
+        <script>
+            $(function() {
+                $("li a").each(function() {
+                    console.log("to element o id: "+this)
+                })
+                $("li").each(function(index,element) {
+                    console.log(index +":"+$(this).text());
+                })
+                $("li").each(function(index,element) {
+                    console.log($(this).data("cena"));//zwraca int/liczba
+                    console.log($(this).attr("data-cena"));//traktuje jako string
+                })
+
+            })
+
+
+        </script>
+        <style>
+            .background {
+                background-color: red;
+            }
+            .fontsize {
+                font-size: 150%;
+            }
+            .link{
+                color: grey;
+                text-decoration: none;
+                }
+ 
+            .another_link{
+                 background-color: black;
+                }    
+ 
+            .completely_different_link{
+                background-color: yellow;
+                }
+             body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+        ul {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        li {
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+            color: #555;
+        }
+        li:last-child {
+            border-bottom: none;
+        }
+        li:hover {
+            color: #007bff;
+            font-weight: bold;
+        }
+            
+        </style>
+    </head>
+    <body>
+            <h1>Lista gier Komputerowych</h1>
+         <ul>
+        <li data-cena="25"><a href="#" id="1">Hollow Knight</a></li>
+        <li data-cena="45"><a href="#" id="2">Minecraft</a></li>
+        <li data-cena="2455"><a href="#" id="3">Portal 2</a></li>
+        <li data-cena="3"><a href="#" id="4">The Legend of Zelda: Breath of the Wild</a></li>
+        <li data-cena="2524"><a href="#" id="5">Dark Souls III</a></li>
+        <li data-cena="77"><a href="#" id="6">Valorant</li>
+        <li data-cena="5"><a href="#" id="7">Counter-Strike 2</a></li>
+    </ul>
+    </body>
+</html>
