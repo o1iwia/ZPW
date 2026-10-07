@@ -1,0 +1,36 @@
+<html>
+    <head>
+        <script src="https://code.jquery.com/jquery-4.0.0.js" integrity="sha256-9fsHeVnKBvqh3FB2HYu7g2xseAZ5MlN6Kz/qnkASV8U=" crossorigin="anonymous"></script>
+        <script>
+             $(function(){
+                let licznik=0;
+                    $("#add").on("click",function(){
+                          licznik++;
+                           let nowaKarta = $("<div></div>");
+                            nowaKarta.addClass("card");
+                            let losowyKolor = Math.floor(Math.random()*254)+1;
+                            let losowaSzerokosc =Math.floor(Math.random()*151)+100;
+                            let losowaWysokosc =Math.floor(Math.random()*151)+100;
+                          $(nowaKarta).css({
+                            "background-color":losowyKolor,
+                            "width":losowaSzerokosc,
+                            "height":losowaWysokosc
+                          })  
+                          $(nowaKarta).append(licznik);
+                          $("#container").append(nowaKarta)
+                    })
+                    
+                });
+           
+         
+        </script>
+        <style>
+        
+    </style>
+    </head>
+    <body>
+        <button id="add">Dodaj kartę</button>
+        <button id="deleteAll">Usuń wszystkie</button>
+        <div id="container"></div>
+    </body> 
+</html>

@@ -1,0 +1,74 @@
+<html>
+    <head>
+        <script src="https://code.jquery.com/jquery-4.0.0.js" integrity="sha256-9fsHeVnKBvqh3FB2HYu7g2xseAZ5MlN6Kz/qnkASV8U=" crossorigin="anonymous"></script>
+        <script>
+            //wylosowac 10 liczb i ma byc 10 kwadratow, jak klikam przycisk to sie pojawia kwadrat
+          $(function(){       
+                    $("#przycisk").on("click",function(){
+                        let liczba = Math.floor(Math.random()*10)+1;
+                        for(let i =0;i<liczba;i++) {
+                            $("#kon").append('<div class="kwadrat"></div>')
+                        }
+                    })
+                });
+
+
+
+                $(function() {
+                    let licznik=0;
+                    $("#start").on("click", function() {
+                        $("#kolko").css({ 
+                        "left": Math.floor((Math.random() * 1000) + 1) + "px", 
+                        "top": Math.floor((Math.random() * 1000) + 1) + "px" 
+                        
+                }); 
+                
+                    })
+                    $("#kolko").on("click", function() {
+                        licznik++
+                        $("#txt").text(licznik)
+                        $(this).hide();
+                         drawCircle();
+                         $(this).show();
+                    })
+                    function drawCircle() {
+                        $("#kolko").css({ 
+                        "left": Math.floor((Math.random() * 1000) + 1) + "px", 
+                        "top": Math.floor((Math.random() * 1000) + 1) + "px" 
+                        
+                    }); 
+                    }
+                })
+            
+         
+        </script>
+        <style>
+       .kwadrat {
+            width: 200px;
+            height: 200px;
+            background-color: red;
+            margin: 5px;
+        }
+        #kolko {
+              width: 50px;
+            height: 50px;
+            background-color: rgb(110, 71, 133);
+            position: absolute;
+            border-radius: 50px;
+           
+        }
+        #txt {
+            display: inline-block;
+            margin-left: 5px;
+        }
+    </style>
+    </head>
+    <body>
+            <!-- <div id="kon"></div>
+            <button id="przycisk">pokaz kwadrat</button> -->
+            <button id="start">start</button>
+            <p id="txt"></p>
+            <div id="kolko"></div>
+
+    </body> 
+</html>
