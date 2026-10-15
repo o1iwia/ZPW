@@ -1,74 +1,73 @@
 <html>
     <head>
+        <title>strona glowna</title>
         <script src="https://code.jquery.com/jquery-4.0.0.js" integrity="sha256-9fsHeVnKBvqh3FB2HYu7g2xseAZ5MlN6Kz/qnkASV8U=" crossorigin="anonymous"></script>
         <script>
-            //wylosowac 10 liczb i ma byc 10 kwadratow, jak klikam przycisk to sie pojawia kwadrat
-          $(function(){       
-                    $("#przycisk").on("click",function(){
-                        let liczba = Math.floor(Math.random()*10)+1;
-                        for(let i =0;i<liczba;i++) {
-                            $("#kon").append('<div class="kwadrat"></div>')
-                        }
-                    })
-                });
-
-
-
-                $(function() {
-                    let licznik=0;
-                    $("#start").on("click", function() {
-                        $("#kolko").css({ 
-                        "left": Math.floor((Math.random() * 1000) + 1) + "px", 
-                        "top": Math.floor((Math.random() * 1000) + 1) + "px" 
-                        
-                }); 
-                
-                    })
-                    $("#kolko").on("click", function() {
-                        licznik++
-                        $("#txt").text(licznik)
-                        $(this).hide();
-                         drawCircle();
-                         $(this).show();
-                    })
-                    function drawCircle() {
-                        $("#kolko").css({ 
-                        "left": Math.floor((Math.random() * 1000) + 1) + "px", 
-                        "top": Math.floor((Math.random() * 1000) + 1) + "px" 
-                        
-                    }); 
+            
+            $(function() {
+                $("#ukryj").on("click", function() {
+                    $("#tekst1").hide();
+                })
+                $("#pokaz").on("click", function() {
+                    $("#tekst1").show();
+                })
+                $("#przelacz").on("click", function(){
+                    $("#pudelko").toggle();
+                })
+                $("#slideUp").on("click", function() {
+                    $("#tekst2").slideUp();
+                })
+                $("#slideDown").on("click", function() {
+                    $("#tekst2").slideDown();
+                })
+                 $("#slideTog").on("click", function() {
+                    $("#tekst3").slideToggle();
+                })
+                $("#check").on("click", function() {
+                    if($("#au").is(":checked")) {
+                        $("body").css("background-color","green");
+                        alert("poprawna odp")
+                    } else {
+                         $("body").css("background-color","red");
+                         alert("ZLE POPRAWNA ODP TO AU")
                     }
                 })
-            
-         
+
+            })
+
+
         </script>
         <style>
-       .kwadrat {
-            width: 200px;
-            height: 200px;
-            background-color: red;
-            margin: 5px;
-        }
-        #kolko {
-              width: 50px;
-            height: 50px;
-            background-color: rgb(110, 71, 133);
-            position: absolute;
-            border-radius: 50px;
-           
-        }
-        #txt {
-            display: inline-block;
-            margin-left: 5px;
-        }
-    </style>
+       
+            #pudelko{
+                background-color: blueviolet;
+            }
+        </style>
     </head>
     <body>
-            <!-- <div id="kon"></div>
-            <button id="przycisk">pokaz kwadrat</button> -->
-            <button id="start">start</button>
-            <p id="txt"></p>
-            <div id="kolko"></div>
+          <p id="tekst1">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quasi, suscipit magnam velit recusandae neque amet minima eum quidem fuga ab quam aliquid vero, magni accusantium. Veniam laborum nesciunt minima qui.</p>
+          <button id="ukryj">ukryj tekst</button>
+          <button id="pokaz">pokaz tekst</button>
+          
+          <div id="pudelko">widzisz mnie</div>
+      <button id="przelacz">pokaz/ukryj</button>
+        <br>
+      <p id="tekst2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo, omnis consectetur officiis dolorem quam ea temporibus aperiam. Quae, molestias. Ut necessitatibus vel beatae expedita eligendi maiores magni magnam a excepturi?</p>
+      <button id="slideUp">slide up</button>
+      <button id="slideDown">slide down</button>
 
-    </body> 
+      <p id="tekst3"> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quis repudiandae nihil dolores quae, odio nisi et qui cum sunt expedita animi enim id sint labore possimus, quo optio esse aspernatur?</p>
+      <button id="slideTog">Toggle slideUp() and slideDown()</button>
+      <br>
+      <form action="">
+        <p>Chemia. Jaki jest symbol chemiczny złota?</p>
+        <input type="radio" name="au" id="au">
+        <label for="au">Au</label>
+        <input type="radio" name="cu" id="cu">
+        <label for="cu">Cu</label>
+        <input type="radio" name="fe" id="fe">
+        <label for="fe">Fe</label>
+        <button id="check" type="button">sprawdz odp</button>
+      </form>
+    </body>
 </html>
