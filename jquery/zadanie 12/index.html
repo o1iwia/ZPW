@@ -29,6 +29,14 @@
                 $("#tekst2").on("input", function(){
                     $("#podglad").text($(this).val())
                 })
+                $("#arena").on("input", function() {
+                     let max = 100
+                    if($(this).val().length > max) {
+                        $(this).val($(this).val().substring(0,max))
+                    } else {
+                        $("#licznik").text("ilosc znakow: "+$(this).val().length)
+                    }
+                })
 
             })
 
@@ -63,5 +71,8 @@
          <hr>
          <input type="text" id="tekst2">
          <p>podglad: <span id="podglad"></span></p>
+         <hr>
+         <textarea name="arena" id="arena"></textarea>
+         <p id="licznik"></p>
     </body>
 </html>
