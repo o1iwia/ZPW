@@ -31,10 +31,13 @@
                 })
                 $("#arena").on("input", function() {
                      let max = 100
-                    if($(this).val().length > max) {
-                        $(this).val($(this).val().substring(0,max))
+                     let charleft = 100 - $(this).val().length;
+
+                    $("#licznik").text(charleft)
+                    if(charleft<10) {
+                        $("#licznik").css("color","red")
                     } else {
-                        $("#licznik").text("ilosc znakow: "+$(this).val().length)
+                        $("#licznik").css("color","black")
                     }
                 })
 
@@ -73,6 +76,6 @@
          <p>podglad: <span id="podglad"></span></p>
          <hr>
          <textarea name="arena" id="arena"></textarea>
-         <p id="licznik"></p>
+         <p id="licznik">pozostało znakow: </p>
     </body>
 </html>
