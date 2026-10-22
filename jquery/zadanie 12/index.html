@@ -1,0 +1,67 @@
+<html>
+    <head>
+        <title>strona glowna</title>
+        <script src="https://code.jquery.com/jquery-4.0.0.js" integrity="sha256-9fsHeVnKBvqh3FB2HYu7g2xseAZ5MlN6Kz/qnkASV8U=" crossorigin="anonymous"></script>
+        <script>
+            $(function() {
+                $("#kolor").change(function() {
+                    $("body").css("background-color",$(this).val())
+                })
+
+                $("#rozmiar").change(function() {
+                    $("#tekst").text("do zaplaty: "+$(this).val()+ "zl")
+                })
+
+                $("#newsletter").change(function(){
+                    if($(this).is(":checked")) {
+                        $("#stan").text("zapisano nas do newslettera")
+                    } else {
+                        $("#stan").text("wypisano nas z newslettera")
+                    }
+                })
+                $("#regulamin").change( function() {
+                    if($(this).is(":checked")) {
+                        $("#przycisk").prop("disabled",false)
+                    } else {
+                        $("#przycisk").prop("disabled",true)
+                    }
+                })
+                $("#tekst2").on("input", function(){
+                    $("#podglad").text($(this).val())
+                })
+
+            })
+
+
+        </script>
+        <style>
+         
+            
+        </style>
+    </head>
+    <body>
+         <select name="kolor" id="kolor">
+            <option value="white">bialy</option>
+            <option value="yellow">zolty</option>
+            <option value="lightblue">niebieski</option>
+         </select>
+         <hr>
+         <select id="rozmiar">
+            <option value="20">mala 20 zl</option>
+            <option value="30">srednia 30 zl</option>
+            <option value="40">duza 40 zl</option>
+         </select>
+         <p id="tekst"></p>
+         <hr>
+         <input type="checkbox" name="newsletter" id="newsletter"> chce newsletter
+         <p id="stan"></p>
+         <hr>
+         <form id="form">
+         <input type="checkbox" name="regulamin" id="regulamin"> akceptuje regulamin
+         <button id="przycisk" disabled>zarejestruj</button>
+         </form>
+         <hr>
+         <input type="text" id="tekst2">
+         <p>podglad: <span id="podglad"></span></p>
+    </body>
+</html>
