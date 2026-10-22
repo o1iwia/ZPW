@@ -1,0 +1,66 @@
+<html>
+    <head>
+        <title>strona glowna</title>
+        <script src="https://code.jquery.com/jquery-4.0.0.js" integrity="sha256-9fsHeVnKBvqh3FB2HYu7g2xseAZ5MlN6Kz/qnkASV8U=" crossorigin="anonymous"></script>
+        <script>
+            $(function() {
+                $("#sprawdz").click(function() {
+                    let imie = $("#imie").val().trim()
+                    if(imie === "") {
+                        $("#blad").text("pole imie nie moze byc puste")
+                    } else {
+                        $("#blad").text("twoje imie to: "+imie)
+                    }
+                })
+                //napraw
+                $("#wyslij").click(function(e) {
+                    e.preventDefault
+                    let nazwisko = $("#nazwisko").val().trim()
+                    if(nazwisko ==="") {
+                        $("#napis").text("podaj nazwisko").css("color","red")
+                    } else {
+                        $("#napis").text("wyslano formularz").css("color","green")
+                    }   
+                })
+                //napraw
+                $("#sprawdzWiek").click(function() {
+                    let wiek = Number($("wiek").val().trim())
+                    if(isNaN(wiek)) {
+                        $("#bladWiek").text("wiek musi byc liczba")
+                    } else {
+                        $("#bladWiek").text("masz "+wiek+" lat")
+                    }
+                })
+                $("#sprawdzOcene").click(function() {
+                    //pd
+                })
+
+            })
+
+
+        </script>
+        <style>
+         
+            
+        </style>
+    </head>
+    <body>
+        <input type="text " id="imie">
+        <button id="sprawdz">sprawdz</button>
+        <p id="blad"></p>
+        <hr>
+        <form action="">
+            <input type="text" id="nazwisko">
+            <button id="wyslij" type="submit">wyslij</button>
+
+        </form>
+        <p id="napis"></p>
+        <hr>
+        <input type="text" id="wiek">
+        <button id="sprawdzWiek"> sprawdz </button>
+        <p id="bladWiek"></p>
+        <hr>
+        <input type="text" name="ocena" id="ocena">
+        <button id="sprawdzOcene">sprawdz</button>
+    </body>
+</html>
